@@ -218,7 +218,7 @@ full$Title <- sub(' ', '', full$Title)
 # There are some redundant titles
 
 sir <- c('Capt', 'Col', 'Major', 'Sir')
-lady <- c('the Countess', 'Jonkheer', 'Lady')
+lady <- c('the Countess', 'Jonkheer', 'Dona', 'Lady')
 miss <- c('Mlle', 'Miss', 'Ms') # There is only 1 Ms, so assuming unmarried
 mrs <- c('Mrs', 'Mme')
 mr <- c('Don', 'Mr')
@@ -267,7 +267,10 @@ full$Age <- apply(full, 1, function(row) {
 })
 
 # This scored 0.79904, which moved me 1,195 positions up the leaderboard! 
-# I now rank 1295/6141
+# I now rank 1295/6141 as of 1/22/2017
+
+# I tried to add Title to the list of features, and the model
+# performed more poorly: 0.78947 when using Title as a feature, so omitting.
 
 solution <- make_prediction(
     full,
